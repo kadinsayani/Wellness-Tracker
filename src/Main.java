@@ -31,7 +31,7 @@ public class Main {
         int calorieGoal = sc.nextInt();
         System.out.println("\n");
 
-        // Create user object and pass in user inputted data
+        // Create user object and pass in user inputed data
         User user = new User(name, stepGoal, age, weight, calorieGoal);
 
         // WellnessTracker.menu()

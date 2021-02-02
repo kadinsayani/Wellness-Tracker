@@ -14,6 +14,8 @@ public class WellnessTracker {
     double exerciseTime = 0.0;
 
     Scanner sc = new Scanner(System.in);
+    
+    FoodTracker ft = new FoodTracker();
 
     /*
      * app method contains the main menu and a switch statement for performing
@@ -24,8 +26,6 @@ public class WellnessTracker {
      * @return: void
      */
     public void menu(User user) {
-
-        FoodTracker ft = new FoodTracker();
 
         do {
             // Main menu
@@ -48,7 +48,7 @@ public class WellnessTracker {
             System.out.println("2: Record water intake");
             System.out.println("3: Record sleep");
             System.out.println("4: Record exercise");
-            System.out.println("5: Record food item");
+            System.out.println("5: Record food");
             System.out.println("6: Edit previous entry");
             System.out.println("7: Exit application");
 
@@ -69,6 +69,7 @@ public class WellnessTracker {
                     break;
                 case 5:
                     ft.recordFoodItem();
+                    checkMetric("calories", user);
                     break;
                 case 6:
                     System.out.println(
@@ -151,12 +152,20 @@ public class WellnessTracker {
             double exerciseGoal = 60.0;
             if (exerciseTime < exerciseGoal) {
                 System.out.println("You have " + (exerciseGoal - exerciseTime)
-                        + " exercise minutes reamining before you reach your recommended daily exercise time. 💪");
+                        + " exercise minutes remaining before you reach your recommended daily exercise time. 💪");
             } else if (exerciseTime == exerciseGoal) {
                 System.out.println("Congratulations! You have met your recommended daily exercise time! ✅");
             } else {
                 System.out.println("You have exceeded your recommended daily exercise time. 😁");
             }
+        } else if (metric == "calories") {
+        	if (ft.calorieCount < user.calorieGoal) {
+        		System.out.println("You have " + (user.calorieGoal - ft.calorieCount) + " calories remaining before you reach your calorie goal. 🍎");
+        	} else if (ft.calorieCount == user.calorieGoal) {
+        		System.out.println("Congratulations! You have met your calorie goal! ✅");
+        	} else {
+        		System.out.println("You have exceeded your calorie goal.");
+        	}
         }
     }
 
