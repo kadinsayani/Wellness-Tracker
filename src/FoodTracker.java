@@ -12,7 +12,7 @@ public class FoodTracker {
     /**
      * recordFoodItem method uses the CalorieNinjas natural language processing api
      * (https://rapidapi.com/user/calorieninjas) to retrieve calories for a user
-     * inputted query
+     * inputed query
      */
     public void recordFoodItem() {
         // User input - food search query
