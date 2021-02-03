@@ -25,4 +25,53 @@ public class User {
         this.weight = weight;
         this.calorieGoal = calorieGoal;
     }
+
+	/**
+	 * @return the stepGoal
+	 */
+	public int getStepGoal() {
+		return stepGoal;
+	}
+
+	/**
+	 * @param stepGoal the stepGoal to set
+	 */
+	public void setStepGoal(int stepGoal) {
+		this.stepGoal = stepGoal;
+	}
+
+	/**
+	 * @return the calorieGoal
+	 */
+	public int getCalorieGoal() {
+		return calorieGoal;
+	}
+
+	/**
+	 * @param calorieGoal the calorieGoal to set
+	 */
+	public void setCalorieGoal(int calorieGoal) {
+		this.calorieGoal = calorieGoal;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+
+	/**
+	 * @return the weight
+	 */
+	public double getWeight() {
+		return weight;
+	}
 }

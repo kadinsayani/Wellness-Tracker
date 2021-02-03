@@ -30,7 +30,7 @@ public class WellnessTracker {
         do {
             // Main menu
             System.out.println("\n");
-            System.out.println("Welcome to wellness tracker, " + user.name + "!");
+            System.out.println("Welcome to wellness tracker, " + user.getName() + "!");
             System.out.println("-----------------------------------------");
             System.out.println("Step count" + "\t|" + "\t" + stepCount);
             System.out.println("-----------------------------------------");
@@ -40,7 +40,7 @@ public class WellnessTracker {
             System.out.println("-----------------------------------------");
             System.out.println("Exercise time" + "\t|" + "\t" + exerciseTime + " minutes");
             System.out.println("-----------------------------------------");
-            System.out.println("Calories" + "\t|" + "\t" + ft.calorieCount + " calories");
+            System.out.println("Calories" + "\t|" + "\t" + ft.getCalorieCount() + " calories");
             System.out.println("-----------------------------------------");
             System.out.println("\n");
             System.out.println("What would you like to do?");
@@ -120,10 +120,10 @@ public class WellnessTracker {
      */
     public void checkMetric(String metric, User user) {
         if (metric == "steps") {
-            if (stepCount < user.stepGoal) {
+            if (stepCount < user.getStepGoal()) {
                 System.out.println(
-                        "You have " + (user.stepGoal - stepCount) + " steps remaining before you reach your goal! 👣");
-            } else if (stepCount == user.stepGoal) {
+                        "You have " + (user.getStepGoal() - stepCount) + " steps remaining before you reach your goal! 👣");
+            } else if (stepCount == user.getStepGoal()) {
                 System.out.println("Congratulations! You have reached your step goal. ✅");
             } else {
                 System.out.println("You have exceeded your step goal, keep it up! 😁");
@@ -139,7 +139,7 @@ public class WellnessTracker {
                 System.out.println("You have exceeded your recommended daily water intake, keep it up! 😁");
             }
         } else if (metric == "sleep") {
-            double sleepGoal = calculateRecommendedSleep(user.age);
+            double sleepGoal = calculateRecommendedSleep(user.getAge());
             if (sleepTime < sleepGoal) {
                 System.out.println("You are " + (sleepGoal - sleepTime)
                         + " hours short of your recommended sleep time (" + sleepGoal + "). 💤");
@@ -159,9 +159,9 @@ public class WellnessTracker {
                 System.out.println("You have exceeded your recommended daily exercise time. 😁");
             }
         } else if (metric == "calories") {
-        	if (ft.calorieCount < user.calorieGoal) {
-        		System.out.println("You have " + (user.calorieGoal - ft.calorieCount) + " calories remaining before you reach your calorie goal. 🍎");
-        	} else if (ft.calorieCount == user.calorieGoal) {
+        	if (ft.getCalorieCount() < user.getCalorieGoal()) {
+        		System.out.println("You have " + (user.getCalorieGoal() - ft.getCalorieCount()) + " calories remaining before you reach your calorie goal. 🍎");
+        	} else if (ft.getCalorieCount() == user.getCalorieGoal()) {
         		System.out.println("Congratulations! You have met your calorie goal! ✅");
         	} else {
         		System.out.println("You have exceeded your calorie goal.");
@@ -177,7 +177,7 @@ public class WellnessTracker {
      * @returns: weight / 2.0
      */
     public double calculateRequiredWaterIntake(User user) {
-        return user.weight / 2.0;
+        return user.getWeight() / 2.0;
     }
 
     /*

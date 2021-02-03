@@ -23,7 +23,7 @@ public class FoodTracker {
         System.out.println("Enter text here: ");
         String input = sc.nextLine();
         String foodSearch = input.replace(" ", "%20");
-
+        
         // Http request, response parsing, and adding calories to calorieCount
         try {
             HttpRequest request = HttpRequest.newBuilder()
@@ -48,4 +48,11 @@ public class FoodTracker {
             e.printStackTrace();
         }
     }
+
+	/**
+	 * @return the calorieCount
+	 */
+	public double getCalorieCount() {
+		return calorieCount;
+	}
 }
