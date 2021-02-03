@@ -35,7 +35,7 @@ public class Main {
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
 		// WellnessTracker.menu()
-		WellnessTracker wt = new WellnessTracker();
+		WellnessTracker wt = new WellnessTracker(0, 0, 0, 0, 0.0);
 		wt.menu(user);
 
 		sc.close();

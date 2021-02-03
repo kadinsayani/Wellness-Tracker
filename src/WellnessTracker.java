@@ -8,17 +8,33 @@ import java.util.Scanner;
 
 public class WellnessTracker {
 
-	int stepCount = 0;
-	double waterIntake = 0.0;
-	double sleepTime = 0.0;
-	double exerciseTime = 0.0;
-
+	private int stepCount;
+	private double waterIntake;
+	private double sleepTime;
+	private double exerciseTime;
+	private double calorieCount;
+	
 	Scanner sc = new Scanner(System.in);
 
-	FoodTracker ft = new FoodTracker();
+	/**
+	 * @param stepCount
+	 * @param waterIntake
+	 * @param sleepTime
+	 * @param exerciseTime
+	 * @param calorieCount
+	 */
+	public WellnessTracker(int stepCount, double waterIntake, double sleepTime, double exerciseTime,
+			double calorieCount) {
+		super();
+		this.stepCount = stepCount;
+		this.waterIntake = waterIntake;
+		this.sleepTime = sleepTime;
+		this.exerciseTime = exerciseTime;
+		this.calorieCount = calorieCount;
+	}
 
 	/*
-	 * app method contains the main menu and a switch statement for performing
+	 * menu method contains the main menu and a switch statement for performing
 	 * operations based on user input
 	 * 
 	 * @param: none
@@ -40,7 +56,7 @@ public class WellnessTracker {
 			System.out.println("-----------------------------------------");
 			System.out.println("Exercise time" + "\t|" + "\t" + exerciseTime + " minutes");
 			System.out.println("-----------------------------------------");
-			System.out.println("Calories" + "\t|" + "\t" + ft.getCalorieCount() + " calories");
+			System.out.println("Calories" + "\t|" + "\t" + calorieCount + " calories");
 			System.out.println("-----------------------------------------");
 			System.out.println("\n");
 			System.out.println("What would you like to do?");
@@ -68,7 +84,8 @@ public class WellnessTracker {
 				recordMetric("exercise", user);
 				break;
 			case 5:
-				ft.recordFoodItem();
+				FoodTracker ft = new FoodTracker();
+				calorieCount += ft.requestCalories();
 				checkMetric("calories", user);
 				break;
 			case 6:
@@ -78,7 +95,7 @@ public class WellnessTracker {
 				editEntry(metricToEdit);
 				break;
 			case 7:
-				return;
+				break;
 			}
 		} while (true);
 	}
@@ -92,7 +109,6 @@ public class WellnessTracker {
 	 * @returns: void
 	 */
 	public void recordMetric(String metric, User user) {
-
 		System.out.println("Please enter the amount of " + metric + " you would like to record: ");
 		if (metric == "steps") {
 			stepCount += sc.nextInt();
@@ -107,7 +123,6 @@ public class WellnessTracker {
 			exerciseTime += sc.nextDouble();
 			checkMetric("exercise", user);
 		}
-
 	}
 
 	/*
@@ -159,10 +174,10 @@ public class WellnessTracker {
 				System.out.println("You have exceeded your recommended daily exercise time. 😁");
 			}
 		} else if (metric == "calories") {
-			if (ft.getCalorieCount() < user.getCalorieGoal()) {
-				System.out.println("You have " + (user.getCalorieGoal() - ft.getCalorieCount())
+			if (calorieCount < user.getCalorieGoal()) {
+				System.out.println("You have " + (user.getCalorieGoal() - calorieCount)
 						+ " calories remaining before you reach your calorie goal. 🍎");
-			} else if (ft.getCalorieCount() == user.getCalorieGoal()) {
+			} else if (calorieCount == user.getCalorieGoal()) {
 				System.out.println("Congratulations! You have met your calorie goal! ✅");
 			} else {
 				System.out.println("You have exceeded your calorie goal.");
@@ -199,7 +214,6 @@ public class WellnessTracker {
 	}
 
 	public void editEntry(int metric) {
-
 		if (metric == 1) {
 			System.out.println("How many steps would you like to remove?");
 			int stepsToRemove = sc.nextInt();
@@ -217,7 +231,5 @@ public class WellnessTracker {
 			double exerciseToRemove = sc.nextDouble();
 			exerciseTime -= exerciseToRemove;
 		}
-
 	}
-
 }
