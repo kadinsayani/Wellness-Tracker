@@ -1,5 +1,6 @@
 /**
- * User class to store user data
+ * User class to store user data 
+ * User class also includes getter and setter methods for user information
  */
 
 public class User {

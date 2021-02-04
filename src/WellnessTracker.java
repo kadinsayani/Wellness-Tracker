@@ -17,20 +17,20 @@ public class WellnessTracker {
 	Scanner sc = new Scanner(System.in);
 
 	/**
+	 * Wellness Tracker constructor
 	 * @param stepCount
 	 * @param waterIntake
 	 * @param sleepTime
 	 * @param exerciseTime
 	 * @param calorieCount
 	 */
-	public WellnessTracker(int stepCount, double waterIntake, double sleepTime, double exerciseTime,
-			double calorieCount) {
+	public WellnessTracker() {
 		super();
-		this.stepCount = stepCount;
-		this.waterIntake = waterIntake;
-		this.sleepTime = sleepTime;
-		this.exerciseTime = exerciseTime;
-		this.calorieCount = calorieCount;
+		this.stepCount = 0;
+		this.waterIntake = 0.0;
+		this.sleepTime = 0.0;
+		this.exerciseTime = 0.0;
+		this.calorieCount = 0;
 	}
 
 	/*

@@ -40,7 +40,7 @@ public class Main {
 		user.setCalorieGoal(calorieGoal);
 
 		// WellnessTracker.menu()
-		WellnessTracker wt = new WellnessTracker(0, 0, 0, 0, 0.0);
+		WellnessTracker wt = new WellnessTracker();
 		wt.menu(user);
 
 		sc.close();
