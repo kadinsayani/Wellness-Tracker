@@ -5,9 +5,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-
 /**
  * FoodTracker class for API request and food tracking related features
+ * 
  * @author kadinsayani
  *
  */

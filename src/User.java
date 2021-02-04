@@ -1,6 +1,6 @@
 /**
- * User class to store user data 
- * User class also includes getter and setter methods for user information
+ * User class to store user data User class also includes getter and setter
+ * methods for user information
  */
 
 public class User {
@@ -44,7 +44,7 @@ public class User {
 		} else {
 			this.calorieGoal = 100;
 		}
-		
+
 	}
 
 	/**

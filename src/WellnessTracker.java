@@ -18,6 +18,7 @@ public class WellnessTracker {
 
 	/**
 	 * Wellness Tracker constructor
+	 * 
 	 * @param stepCount
 	 * @param waterIntake
 	 * @param sleepTime
