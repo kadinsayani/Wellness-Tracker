@@ -13,7 +13,7 @@ public class WellnessTracker {
 	private double sleepTime;
 	private double exerciseTime;
 	private double calorieCount;
-	
+
 	Scanner sc = new Scanner(System.in);
 
 	/**
