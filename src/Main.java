@@ -32,7 +32,12 @@ public class Main {
 		System.out.println("\n");
 
 		// Create user object and pass in user inputed data
-		User user = new User(name, stepGoal, age, weight, calorieGoal);
+		User user = new User();
+		user.setName(name);
+		user.setStepGoal(stepGoal);
+		user.setAge(age);
+		user.setWeight(weight);
+		user.setCalorieGoal(calorieGoal);
 
 		// WellnessTracker.menu()
 		WellnessTracker wt = new WellnessTracker(0, 0, 0, 0, 0.0);

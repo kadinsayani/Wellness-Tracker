@@ -3,27 +3,18 @@
  */
 
 public class User {
-	public String name;
-	public int stepGoal;
-	public int age;
-	public double weight;
-	public int calorieGoal;
+	private String name;
+	private int stepGoal;
+	private int age;
+	private double weight;
+	private int calorieGoal;
 
 	/**
 	 * User constructor
 	 * 
-	 * @param name
-	 * @param stepGoal
-	 * @param age
-	 * @param weight
-	 * @param calorieGoal
 	 */
-	User(String name, int stepGoal, int age, double weight, int calorieGoal) {
-		this.name = name;
-		this.stepGoal = stepGoal;
-		this.age = age;
-		this.weight = weight;
-		this.calorieGoal = calorieGoal;
+	User() {
+		
 	}
 
 	/**
@@ -62,6 +53,13 @@ public class User {
 	}
 
 	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
 	 * @return the age
 	 */
 	public int getAge() {
@@ -69,9 +67,23 @@ public class User {
 	}
 
 	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	/**
 	 * @return the weight
 	 */
 	public double getWeight() {
 		return weight;
+	}
+
+	/**
+	 * @param weight the weight to set
+	 */
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 }
