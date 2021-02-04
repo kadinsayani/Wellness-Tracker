@@ -10,14 +10,6 @@ public class User {
 	private int calorieGoal;
 
 	/**
-	 * User constructor
-	 * 
-	 */
-	User() {
-		
-	}
-
-	/**
 	 * @return the stepGoal
 	 */
 	public int getStepGoal() {
@@ -28,7 +20,11 @@ public class User {
 	 * @param stepGoal the stepGoal to set
 	 */
 	public void setStepGoal(int stepGoal) {
-		this.stepGoal = stepGoal;
+		if (stepGoal >= 1) {
+			this.stepGoal = stepGoal;
+		} else {
+			this.stepGoal = 0;
+		}
 	}
 
 	/**
@@ -42,7 +38,12 @@ public class User {
 	 * @param calorieGoal the calorieGoal to set
 	 */
 	public void setCalorieGoal(int calorieGoal) {
-		this.calorieGoal = calorieGoal;
+		if (calorieGoal >= 100) {
+			this.calorieGoal = calorieGoal;
+		} else {
+			this.calorieGoal = 100;
+		}
+		
 	}
 
 	/**
@@ -70,7 +71,11 @@ public class User {
 	 * @param age the age to set
 	 */
 	public void setAge(int age) {
-		this.age = age;
+		if (age >= 0) {
+			this.age = age;
+		} else {
+			this.age = 0;
+		}
 	}
 
 	/**
@@ -84,6 +89,10 @@ public class User {
 	 * @param weight the weight to set
 	 */
 	public void setWeight(double weight) {
-		this.weight = weight;
+		if (weight >= 25) {
+			this.weight = weight;
+		} else {
+			this.weight = 25;
+		}
 	}
 }
