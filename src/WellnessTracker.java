@@ -85,8 +85,8 @@ public class WellnessTracker {
 				recordMetric("exercise", user);
 				break;
 			case 5:
-				FoodTracker ft = new FoodTracker();
-				calorieCount += ft.requestCalories();
+				FoodAPI f = new FoodAPI();
+				calorieCount += f.requestCalories();
 				checkMetric("calories", user);
 				break;
 			case 6:

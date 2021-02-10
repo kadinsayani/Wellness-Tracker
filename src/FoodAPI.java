@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author kadinsayani
  *
  */
-public class FoodTracker {
+public class FoodAPI {
 
 	public double calories;
 
