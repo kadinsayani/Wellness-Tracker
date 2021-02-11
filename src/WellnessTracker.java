@@ -233,4 +233,46 @@ public class WellnessTracker {
 			exerciseTime -= exerciseToRemove;
 		}
 	}
+
+	/**
+	 * @return the exerciseTime
+	 */
+	public double getExerciseTime() {
+		return exerciseTime;
+	}
+
+	/**
+	 * @param exerciseTime the exerciseTime to set
+	 */
+	public void setExerciseTime(double exerciseTime) {
+		this.exerciseTime = exerciseTime;
+	}
+
+	/**
+	 * @return the stepCount
+	 */
+	public int getStepCount() {
+		return stepCount;
+	}
+
+	/**
+	 * @return the waterIntake
+	 */
+	public double getWaterIntake() {
+		return waterIntake;
+	}
+
+	/**
+	 * @return the sleepTime
+	 */
+	public double getSleepTime() {
+		return sleepTime;
+	}
+
+	/**
+	 * @return the calorieCount
+	 */
+	public double getCalorieCount() {
+		return calorieCount;
+	}
 }
