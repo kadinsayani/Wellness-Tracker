@@ -8,31 +8,13 @@ import java.util.Scanner;
 
 public class WellnessTracker {
 
-	private int stepCount;
-	private double waterIntake;
-	private double sleepTime;
-	private double exerciseTime;
-	private double calorieCount;
+	private int stepCount = 0;
+	private double waterIntake = 0.0;
+	private double sleepTime = 0.0;
+	private double exerciseTime = 0.0;
+	private double calorieCount = 0.0;
 
 	Scanner sc = new Scanner(System.in);
-
-	/**
-	 * Wellness Tracker constructor
-	 * 
-	 * @param stepCount
-	 * @param waterIntake
-	 * @param sleepTime
-	 * @param exerciseTime
-	 * @param calorieCount
-	 */
-	public WellnessTracker() {
-		super();
-		this.stepCount = 0;
-		this.waterIntake = 0.0;
-		this.sleepTime = 0.0;
-		this.exerciseTime = 0.0;
-		this.calorieCount = 0;
-	}
 
 	/*
 	 * menu method contains the main menu and a switch statement for performing
@@ -109,7 +91,7 @@ public class WellnessTracker {
 	 * 
 	 * @returns: void
 	 */
-	public void recordMetric(String metric, User user) {
+	private void recordMetric(String metric, User user) {
 		System.out.println("Please enter the amount of " + metric + " you would like to record: ");
 		if (metric == "steps") {
 			stepCount += sc.nextInt();
@@ -134,7 +116,7 @@ public class WellnessTracker {
 	 * 
 	 * @returns: void
 	 */
-	public void checkMetric(String metric, User user) {
+	private void checkMetric(String metric, User user) {
 		if (metric == "steps") {
 			if (stepCount < user.getStepGoal()) {
 				System.out.println("You have " + (user.getStepGoal() - stepCount)
@@ -214,7 +196,7 @@ public class WellnessTracker {
 		return recommendedSleep;
 	}
 
-	public void editEntry(int metric) {
+	private void editEntry(int metric) {
 		if (metric == 1) {
 			System.out.println("How many steps would you like to remove?");
 			int stepsToRemove = sc.nextInt();
@@ -239,13 +221,6 @@ public class WellnessTracker {
 	 */
 	public double getExerciseTime() {
 		return exerciseTime;
-	}
-
-	/**
-	 * @param exerciseTime the exerciseTime to set
-	 */
-	public void setExerciseTime(double exerciseTime) {
-		this.exerciseTime = exerciseTime;
 	}
 
 	/**

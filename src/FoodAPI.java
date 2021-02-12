@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class FoodAPI {
 
-	public double calories;
+	private double calories;
 
 	/**
 	 * recordFoodItem method uses the CalorieNinjas natural language processing api

@@ -11,7 +11,7 @@ public class Main {
 	 * This application is intended to record metrics that contribute to one's
 	 * overall wellness
 	 * 
-	 * @author Kadin Sayani
+	 * @author kadinsayani
 	 */
 
 	public static void main(String[] args) {
@@ -32,12 +32,8 @@ public class Main {
 		System.out.println("\n");
 
 		// Create user object and pass in user inputed data
-		User user = new User();
-		user.setName(name);
-		user.setStepGoal(stepGoal);
-		user.setAge(age);
-		user.setWeight(weight);
-		user.setCalorieGoal(calorieGoal);
+		User user = new User(name, stepGoal, age, weight, calorieGoal);
+
 
 		// WellnessTracker.menu()
 		WellnessTracker wt = new WellnessTracker();
