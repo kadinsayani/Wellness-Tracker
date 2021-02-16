@@ -36,8 +36,8 @@ public class Main {
 
 
 		// WellnessTracker.menu()
-		WellnessTracker wt = new WellnessTracker();
-		wt.menu(user);
+		TrackerMenu t = new TrackerMenu();
+		t.menu(user);
 
 		sc.close();
 	}
