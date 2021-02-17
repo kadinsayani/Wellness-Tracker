@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class TrackerMenu {
 
-	/*
+	/**
 	 * menu method contains the main menu and a switch statement for performing
 	 * operations based on user input
 	 * 
-	 * @param: none
+	 * @param: user
 	 * 
 	 * @return: void
 	 */

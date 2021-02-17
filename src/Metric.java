@@ -6,6 +6,10 @@ public class Metric {
 	private double calorieCount;
 	private String metricType;
 
+	/**
+	 * constructor sets metricType and assigns 0 to metric and calorie counts
+	 * @param metricType
+	 */
 	Metric(String metricType) {
 		if (metricType == "calories") {
 			calorieCount = 0.0;
@@ -14,11 +18,11 @@ public class Metric {
 		this.metricType = metricType;
 	}
 
-	/*
+	/**
 	 * recordMetric method prompts users to enter a recording for a specific metric
 	 * (ex. steps)
 	 * 
-	 * @param: metric - metric user would like to record
+	 * @param: user - user to record metric for
 	 * 
 	 * @returns: void
 	 */
@@ -27,14 +31,13 @@ public class Metric {
 		Scanner sc = new Scanner(System.in);
 		double amountToAdd = sc.nextDouble();
 		metricCount += amountToAdd;
-		// checkMetric(user);
 	}
 
-	/*
+	/**
 	 * checkMetric method compares recorded metrics with goals and calculated
 	 * recommendations
 	 * 
-	 * @param: metric - metric being checked
+	 * @param: user - user metrics and goals being checked
 	 * 
 	 * @returns: void
 	 */
@@ -90,6 +93,11 @@ public class Metric {
 		}
 	}
 
+	
+	/**
+	 * adds calories to user calorieCount
+	 * @param calories
+	 */
 	public void addToCalorieCount(double calories) {
 		calorieCount += calories;
 	}
@@ -98,7 +106,7 @@ public class Metric {
 		return user.getWeight() / 2.0;
 	}
 
-	/*
+	/**
 	 * calculateRecommendedSleep based on recommended sleep times from canada.ca
 	 * 
 	 * @param: age

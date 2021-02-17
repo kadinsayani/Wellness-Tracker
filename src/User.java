@@ -4,12 +4,21 @@
  */
 
 public class User {
+	
 	private String name;
 	private int stepGoal;
 	private int age;
 	private double weight;
 	private int calorieGoal;
 
+	/**
+	 * User constructor
+	 * @param name
+	 * @param stepGoal
+	 * @param age
+	 * @param weight
+	 * @param calorieGoal
+	 */
 	User(String name, int stepGoal, int age, double weight, int calorieGoal) {
 		this.name = name;
 		this.stepGoal = stepGoal;

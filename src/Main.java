@@ -1,19 +1,24 @@
 import java.util.Scanner;
 
 /**
+ * This application is intended to record metrics that contribute to one's
+ * overall wellness
+ * 
+ * @author kadinsayani
+ */
+
+/**
  * Main class to take user data as input, create user object, and execute
  * WellnessTracker.menu()
  */
 
 public class Main {
 
-	/**
-	 * This application is intended to record metrics that contribute to one's
-	 * overall wellness
-	 * 
-	 * @author kadinsayani
-	 */
 
+	/**
+	 * main method to create user object and call TrackerMenu.menu
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// User information
@@ -34,7 +39,7 @@ public class Main {
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
-		// WellnessTracker.menu()
+		// TrackerMenu.menu() handles the programs menu and calls methods from other classes
 		TrackerMenu t = new TrackerMenu();
 		t.menu(user);
 
