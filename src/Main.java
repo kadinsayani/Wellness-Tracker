@@ -34,7 +34,6 @@ public class Main {
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
-
 		// WellnessTracker.menu()
 		TrackerMenu t = new TrackerMenu();
 		t.menu(user);

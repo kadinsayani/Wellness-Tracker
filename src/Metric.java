@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Metric {
-	
+
 	private double metricCount;
 	private double calorieCount;
 	private String metricType;
-	
+
 	Metric(String metricType) {
 		if (metricType == "calories") {
 			calorieCount = 0.0;
@@ -27,7 +27,7 @@ public class Metric {
 		Scanner sc = new Scanner(System.in);
 		double amountToAdd = sc.nextDouble();
 		metricCount += amountToAdd;
-		checkMetric(user);
+		// checkMetric(user);
 	}
 
 	/*
@@ -89,7 +89,7 @@ public class Metric {
 			}
 		}
 	}
-	
+
 	public void addToCalorieCount(double calories) {
 		calorieCount += calories;
 	}
@@ -121,14 +121,14 @@ public class Metric {
 	public double getMetricCount() {
 		return metricCount;
 	}
-	
+
 	/**
 	 * @return the calorieCount
 	 */
 	public double getCalorieCount() {
 		return calorieCount;
 	}
-	
+
 //	private void editEntry(int metric) {
 //		if (metric == 1) {
 //			System.out.println("How many steps would you like to remove?");

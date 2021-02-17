@@ -9,7 +9,7 @@ public class User {
 	private int age;
 	private double weight;
 	private int calorieGoal;
-	
+
 	User(String name, int stepGoal, int age, double weight, int calorieGoal) {
 		this.name = name;
 		this.stepGoal = stepGoal;
