@@ -8,6 +8,7 @@ public class Metric {
 
 	/**
 	 * constructor sets metricType and assigns 0 to metric and calorie counts
+	 * 
 	 * @param metricType
 	 */
 	Metric(String metricType) {
@@ -93,9 +94,9 @@ public class Metric {
 		}
 	}
 
-	
 	/**
 	 * adds calories to user calorieCount
+	 * 
 	 * @param calories
 	 */
 	public void addToCalorieCount(double calories) {

@@ -4,7 +4,7 @@
  */
 
 public class User {
-	
+
 	private String name;
 	private int stepGoal;
 	private int age;
@@ -13,6 +13,7 @@ public class User {
 
 	/**
 	 * User constructor
+	 * 
 	 * @param name
 	 * @param stepGoal
 	 * @param age

@@ -14,9 +14,9 @@ import java.util.Scanner;
 
 public class Main {
 
-
 	/**
 	 * main method to create user object and call TrackerMenu.menu
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -39,7 +39,8 @@ public class Main {
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
-		// TrackerMenu.menu() handles the programs menu and calls methods from other classes
+		// TrackerMenu.menu() handles the programs menu and calls methods from other
+		// classes
 		TrackerMenu t = new TrackerMenu();
 		t.menu(user);
 
