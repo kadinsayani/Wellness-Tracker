@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * @author kadinsayani
+ *
+ */
 public class Metric {
 
 	private double metricCount;
@@ -83,10 +87,10 @@ public class Metric {
 				System.out.println("You have exceeded your recommended daily exercise time. 😁");
 			}
 		} else if (metricType == "calories") {
-			if (metricCount < user.getCalorieGoal()) {
-				System.out.println("You have " + (user.getCalorieGoal() - metricCount)
+			if (calorieCount < user.getCalorieGoal()) {
+				System.out.println("You have " + (user.getCalorieGoal() - calorieCount)
 						+ " calories remaining before you reach your calorie goal. 🍎");
-			} else if (metricCount == user.getCalorieGoal()) {
+			} else if (calorieCount == user.getCalorieGoal()) {
 				System.out.println("Congratulations! You have met your calorie goal! ✅");
 			} else {
 				System.out.println("You have exceeded your calorie goal.");
