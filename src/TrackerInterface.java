@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 /**
- * WellnessTracker class. This class has the core functionality of the
- * application including recording metrics, checking metrics, and the
- * applications main menu.
+ * TrackerInterface class. This class handles the interface of the
+ * application and calls methods for recording metrics, checking metrics,
+ * and calorie tracking
  */
 
 public class TrackerInterface {

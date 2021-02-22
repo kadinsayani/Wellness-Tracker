@@ -8,8 +8,8 @@ import java.util.Scanner;
  */
 
 /**
- * Main class to take user data as input, create user object, and execute
- * WellnessTracker.menu()
+ * Main class to take user data as input, create user object, and create an
+ * instance of TrackerInterface
  */
 
 public class Main {
@@ -39,7 +39,8 @@ public class Main {
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
-		// TrackerInterface.menu() handles the programs interface and calls methods from other
+		// TrackerInterface.menu() handles the programs interface and calls methods from
+		// other
 		// classes
 		TrackerInterface t = new TrackerInterface();
 		t.menu(user);
