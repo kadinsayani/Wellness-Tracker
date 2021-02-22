@@ -39,9 +39,9 @@ public class Main {
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
 
-		// TrackerMenu.menu() handles the programs menu and calls methods from other
+		// TrackerInterface.menu() handles the programs interface and calls methods from other
 		// classes
-		TrackerMenu t = new TrackerMenu();
+		TrackerInterface t = new TrackerInterface();
 		t.menu(user);
 
 		sc.close();

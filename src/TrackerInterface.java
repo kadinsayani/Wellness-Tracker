@@ -6,7 +6,7 @@ import java.util.Scanner;
  * applications main menu.
  */
 
-public class TrackerMenu {
+public class TrackerInterface {
 
 	/**
 	 * menu method contains the main menu and a switch statement for performing
@@ -50,8 +50,7 @@ public class TrackerMenu {
 			System.out.println("3: Record sleep");
 			System.out.println("4: Record exercise");
 			System.out.println("5: Record food");
-			System.out.println("6: Edit previous entry");
-			System.out.println("7: Exit application");
+			System.out.println("6: Exit application");
 
 			int menuSelection = menuSc.nextInt();
 
@@ -80,12 +79,6 @@ public class TrackerMenu {
 				calories.checkMetric(user);
 				break;
 			case 6:
-				System.out.println(
-						"Would you like to edit an entry for steps (1), water (2), sleep (3), or exercise (4)?");
-				// int metricToEdit = sc.nextInt();
-				// editEntry(metricToEdit);
-				break;
-			case 7:
 				menuActive = false;
 				break;
 			}

@@ -142,24 +142,4 @@ public class Metric {
 		return calorieCount;
 	}
 
-//	private void editEntry(int metric) {
-//		if (metric == 1) {
-//			System.out.println("How many steps would you like to remove?");
-//			int stepsToRemove = sc.nextInt();
-//			stepCount -= stepsToRemove;
-//		} else if (metric == 2) {
-//			System.out.println("How many fluid ounces of water would you like to remove?");
-//			double waterToRemove = sc.nextDouble();
-//			waterIntake -= waterToRemove;
-//		} else if (metric == 3) {
-//			System.out.println("How many hours of sleep would you like to remove?");
-//			double sleepToRemove = sc.nextDouble();
-//			sleepTime -= sleepToRemove;
-//		} else if (metric == 4) {
-//			System.out.println("How many minutes of exercise would you like to remove?");
-//			double exerciseToRemove = sc.nextDouble();
-//			exerciseTime -= exerciseToRemove;
-//		}
-//	}
-
 }
