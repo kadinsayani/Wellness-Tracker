@@ -52,35 +52,38 @@ public class TrackerInterface {
 			System.out.println("5: Record food");
 			System.out.println("6: Exit application");
 
-			int menuSelection = menuSc.nextInt();
+			String menuSelection = menuSc.nextLine();
 
 			// Switch statement for menu option selection
 
 			switch (menuSelection) {
-			case 1:
+			case "1":
 				steps.recordMetric(user);
 				steps.checkMetric(user);
 				break;
-			case 2:
+			case "2":
 				water.recordMetric(user);
 				water.checkMetric(user);
 				break;
-			case 3:
+			case "3":
 				sleep.recordMetric(user);
 				sleep.checkMetric(user);
 				break;
-			case 4:
+			case "4":
 				exercise.recordMetric(user);
 				exercise.checkMetric(user);
 				break;
-			case 5:
+			case "5":
 				FoodAPI f = new FoodAPI();
 				calories.addToCalorieCount(f.requestCalories());
 				calories.checkMetric(user);
 				break;
-			case 6:
+			case "6":
 				menuActive = false;
 				break;
+			default:
+				System.err.println("Invalid menu option");
+				continue;
 			}
 		} while (menuActive == true);
 	}

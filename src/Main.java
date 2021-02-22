@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * This application is intended to record metrics that contribute to one's
+ * Wellness-Tracker is an application intended to record metrics that contribute to one's
  * overall wellness
  * 
  * @author kadinsayani
