@@ -69,8 +69,11 @@ public class TrackerGUI extends Application {
 		myButton.setOnAction((event) -> {
 			User user = new User(nameField.getText(), Integer.parseInt(ageField.getText()), Integer.parseInt(weightField.getText()), Integer.parseInt(stepGoalField.getText()), Integer.parseInt(calorieGoalField.getText()));
 			System.out.println(user.toString());
+			TrackerInterface t = new TrackerInterface();
+			t.menu(user);
 		});
 		root.getChildren().add(myButton);
+		
 		
 		primaryStage.setTitle("Wellness Tracker");
 		primaryStage.setScene(scene);
