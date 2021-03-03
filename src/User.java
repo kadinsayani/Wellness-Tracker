@@ -8,7 +8,7 @@ public class User {
 	private String name;
 	private int stepGoal;
 	private int age;
-	private double weight;
+	private int weight;
 	private int calorieGoal;
 
 	/**
@@ -20,12 +20,18 @@ public class User {
 	 * @param weight
 	 * @param calorieGoal
 	 */
-	User(String name, int stepGoal, int age, double weight, int calorieGoal) {
+	User(String name, int stepGoal, int age, int weight, int calorieGoal) {
 		this.name = name;
 		this.stepGoal = stepGoal;
 		this.age = age;
 		this.weight = weight;
 		this.calorieGoal = calorieGoal;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", stepGoal=" + stepGoal + ", age=" + age + ", weight=" + weight
+				+ ", calorieGoal=" + calorieGoal + "]";
 	}
 
 	/**
@@ -100,14 +106,14 @@ public class User {
 	/**
 	 * @return the weight
 	 */
-	public double getWeight() {
+	public int getWeight() {
 		return weight;
 	}
 
 	/**
 	 * @param weight the weight to set
 	 */
-	public void setWeight(double weight) {
+	public void setWeight(int weight) {
 		if (weight >= 25) {
 			this.weight = weight;
 		} else {
