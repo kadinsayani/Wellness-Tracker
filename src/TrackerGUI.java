@@ -1,17 +1,11 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.Group;
 import javafx.stage.Stage;
-import javafx.scene.canvas.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.*;
-import javafx.scene.paint.*;
-import javafx.scene.*;
 
 /**
  * @author kadinsayani
