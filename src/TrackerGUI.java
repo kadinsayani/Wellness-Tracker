@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import com.aquafx_project.AquaFx;
 
 /**
  * @author kadinsayani
@@ -22,6 +23,7 @@ public class TrackerGUI extends Application {
 		// Create VBox and Scene
 		VBox root = new VBox();
 		Scene scene = new Scene(root, 500, 500);
+		//AquaFx.style();
 
 		Label myLabel = new Label(
 				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking! Please enter your information below: ");
