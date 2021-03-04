@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 /**
- * TrackerInterface class. This class handles the interface of the
- * application and calls methods for recording metrics, checking metrics,
- * and calorie tracking
+ * TrackerInterface class. This class handles the interface of the application
+ * and calls methods for recording metrics, checking metrics, and calorie
+ * tracking
  */
 
 public class TrackerInterface {
