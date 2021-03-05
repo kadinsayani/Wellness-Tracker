@@ -15,11 +15,11 @@ public class LaunchScreen extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		VBox root = new VBox();
 		Label myLabel = new Label(
-				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking! Please enter your information below: ");
+				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking!");
 		myLabel.setWrapText(true);
 		root.getChildren().add(myLabel);
 		
-		Button myButton = new Button("Submit");
+		Button myButton = new Button("Start");
 		myButton.setOnAction((event) -> {
 			// Switch to next scene
 			UserRegistrationScene u = new UserRegistrationScene();

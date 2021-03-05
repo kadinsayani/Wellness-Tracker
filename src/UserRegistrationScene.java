@@ -24,7 +24,7 @@ public class UserRegistrationScene extends Application {
 		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
 		Label myLabel = new Label(
-				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking! Please enter your information below: ");
+				"Please enter your information below: ");
 		myLabel.setWrapText(true);
 		root.getChildren().add(myLabel);
 
