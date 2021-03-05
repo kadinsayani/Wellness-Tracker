@@ -9,7 +9,7 @@ public class TrackerAppScene extends Application {
 	public void start(Stage stage) {
 		VBox root = new VBox();
 		Label myLabel = new Label(
-				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking! Please enter your information below: ");
+				"Main menu");
 		myLabel.setWrapText(true);
 		root.getChildren().add(myLabel);
 
