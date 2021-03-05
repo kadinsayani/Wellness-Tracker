@@ -20,7 +20,6 @@ public class UserRegistrationScene extends Application {
 		Scene scene = new Scene(root, 500, 500);
 		
 		// Application styling
-		// Using an open source style sheet from a project called jbootx
 		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
 		Label myLabel = new Label(

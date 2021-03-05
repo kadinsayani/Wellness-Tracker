@@ -14,6 +14,8 @@ public class TrackerAppScene extends Application {
 		root.getChildren().add(myLabel);
 
 		Scene scene = new Scene(root, 500, 500);
+		// Application styling
+		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 

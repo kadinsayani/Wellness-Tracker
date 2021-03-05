@@ -28,6 +28,8 @@ public class LaunchScreen extends Application {
 		root.getChildren().add(myButton);
 
 		Scene scene = new Scene(root, 500, 500);
+		// Application styling
+		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 		primaryStage.setTitle("Wellness Tracker");
 		primaryStage.setScene(scene);
 		primaryStage.show();
