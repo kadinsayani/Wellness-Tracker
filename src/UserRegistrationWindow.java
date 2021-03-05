@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
  * @author kadinsayani
  *
  */
-public class TrackerGUI extends Application {
+public class UserRegistrationWindow extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -25,7 +25,8 @@ public class TrackerGUI extends Application {
 		Scene scene = new Scene(root, 500, 500);
 		
 		// Application styling
-		root.getStylesheets().add(getClass().getResource("stylesheet.css").toString());
+		// Using an open source style sheet from a project called jbootx
+		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
 		Label myLabel = new Label(
 				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking! Please enter your information below: ");
@@ -75,9 +76,10 @@ public class TrackerGUI extends Application {
 			User user = new User(nameField.getText(), Integer.parseInt(ageField.getText()),
 					Integer.parseInt(weightField.getText()), Integer.parseInt(stepGoalField.getText()),
 					Integer.parseInt(calorieGoalField.getText()));
-			System.out.println(user.toString());
-			TrackerInterface t = new TrackerInterface();
-			t.menu(user);
+			
+			// Switch to next scene
+			TrackerAppWindow t = new TrackerAppWindow();
+			t.start(primaryStage);
 		});
 		root.getChildren().add(myButton);
 
