@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class TrackerAppWindow extends Application {
+public class TrackerAppScene extends Application {
 
 	public void start(Stage stage) {
 		VBox root = new VBox();

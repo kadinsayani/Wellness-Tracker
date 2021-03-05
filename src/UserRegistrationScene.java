@@ -11,14 +11,9 @@ import javafx.scene.layout.VBox;
  * @author kadinsayani
  *
  */
-public class UserRegistrationWindow extends Application {
+public class UserRegistrationScene extends Application {
 
-	public static void main(String[] args) {
-		launch(args);
-	}
-
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage stage) {
 
 		// Create VBox and Scene
 		VBox root = new VBox();
@@ -78,14 +73,12 @@ public class UserRegistrationWindow extends Application {
 					Integer.parseInt(calorieGoalField.getText()));
 			
 			// Switch to next scene
-			TrackerAppWindow t = new TrackerAppWindow();
-			t.start(primaryStage);
+			TrackerAppScene t = new TrackerAppScene();
+			t.start(stage);
 		});
 		root.getChildren().add(myButton);
 
-		primaryStage.setTitle("Wellness Tracker");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		stage.setScene(scene);
 	}
 
 }
