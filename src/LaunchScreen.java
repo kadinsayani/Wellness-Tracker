@@ -19,6 +19,9 @@ public class LaunchScreen extends Application {
 		myLabel.setWrapText(true);
 		root.getChildren().add(myLabel);
 		
+		// progress bar (5 seconds), then button appears - TODO
+		 
+		// Button handler for start button
 		Button myButton = new Button("Start");
 		myButton.setOnAction((event) -> {
 			// Switch to next scene
@@ -27,7 +30,9 @@ public class LaunchScreen extends Application {
 		});
 		root.getChildren().add(myButton);
 
+		// Scene window
 		Scene scene = new Scene(root, 500, 500);
+		
 		// Application styling
 		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 		primaryStage.setTitle("Wellness Tracker");

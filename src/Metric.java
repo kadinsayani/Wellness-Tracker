@@ -31,10 +31,7 @@ public class Metric {
 	 * 
 	 * @returns: void
 	 */
-	public void recordMetric(User user) {
-		System.out.println("Please enter the amount of " + metricType + " you would like to record: ");
-		Scanner sc = new Scanner(System.in);
-		double amountToAdd = sc.nextDouble();
+	public void recordMetric(User user, double amountToAdd) {
 		metricCount += amountToAdd;
 	}
 

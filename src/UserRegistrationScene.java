@@ -12,6 +12,8 @@ import javafx.scene.layout.VBox;
  *
  */
 public class UserRegistrationScene extends Application {
+	
+	private User user;
 
 	public void start(Stage stage) {
 
@@ -67,12 +69,13 @@ public class UserRegistrationScene extends Application {
 		// Button and button handler to create new user object
 		Button myButton = new Button("Submit");
 		myButton.setOnAction((event) -> {
-			User user = new User(nameField.getText(), Integer.parseInt(ageField.getText()),
+			user = new User(nameField.getText(), Integer.parseInt(ageField.getText()),
 					Integer.parseInt(weightField.getText()), Integer.parseInt(stepGoalField.getText()),
 					Integer.parseInt(calorieGoalField.getText()));
 			
 			// Switch to next scene
 			TrackerAppScene t = new TrackerAppScene();
+			t.getUser(user);
 			t.start(stage);
 		});
 		root.getChildren().add(myButton);

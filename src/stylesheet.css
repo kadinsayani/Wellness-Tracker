@@ -11,11 +11,11 @@
             -fx-dark-text-color 59%,
             -fx-mid-text-color 60%
         );
-    -fx-focused-mark-color : -fx-focused-text-base-color ;   
+    -fx-focused-mark-color : -fx-focused-text-base-color ; 
 
 }
 
-.text-input:focused {
+text-input:focused {
     -fx-highlight-text-fill: ladder(
         -fx-highlight-fill,
         -fx-light-text-color 45%,
