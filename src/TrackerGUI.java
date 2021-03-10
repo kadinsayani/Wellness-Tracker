@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
  * @author kadinsayani
  *
  */
-public class UserRegistrationScene extends Application {
+public class TrackerGUI extends Application {
 	
 	private User user;
 
