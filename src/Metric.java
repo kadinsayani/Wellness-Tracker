@@ -24,18 +24,6 @@ public class Metric {
 	}
 
 	/**
-	 * recordMetric method prompts users to enter a recording for a specific metric
-	 * (ex. steps)
-	 * 
-	 * @param: user - user to record metric for
-	 * 
-	 * @returns: void
-	 */
-	public void recordMetric(User user, double amountToAdd) {
-		metricCount += amountToAdd;
-	}
-
-	/**
 	 * checkMetric method compares recorded metrics with goals and calculated
 	 * recommendations
 	 * 
@@ -130,6 +118,13 @@ public class Metric {
 	 */
 	public double getMetricCount() {
 		return metricCount;
+	}
+
+	/**
+	 * @param metricCount the metricCount to set
+	 */
+	public void setMetricCount(double metricCount) {
+		this.metricCount = metricCount;
 	}
 
 	/**
