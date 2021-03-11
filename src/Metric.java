@@ -22,6 +22,10 @@ public class Metric {
 		metricCount = 0.0;
 		this.metricType = metricType;
 	}
+	
+	public void recordMetric(double amountToAdd)	{
+		metricCount += amountToAdd;
+	}
 
 	/**
 	 * checkMetric method compares recorded metrics with goals and calculated
