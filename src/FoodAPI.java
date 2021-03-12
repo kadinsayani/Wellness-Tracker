@@ -22,15 +22,8 @@ public class FoodAPI {
 	 *
 	 * @return calories
 	 */
-	public double requestCalories() {
-		// User input - food search query
-		System.out.println("\n");
-		System.out.println(
-				"Welcome to food tracking mode! Food tracking mode uses a natural language processing API to retrieve nutritional information on the food you ate and log calories.");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter the food you ate. For example, type one glass of milk, or two apples.");
-		System.out.println("Enter text here: ");
-		String input = sc.nextLine();
+	public double requestCalories(String input) {
+		
 		String foodSearch = input.replace(" ", "%20");
 
 		try {

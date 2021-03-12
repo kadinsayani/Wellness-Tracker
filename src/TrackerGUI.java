@@ -3,10 +3,12 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -117,7 +119,7 @@ public class TrackerGUI extends Application {
 		summary.getChildren().add(stepBox);
 
 		HBox waterBox = new HBox();
-		Label waterCount = new Label("Water intake: " + String.valueOf(water.getMetricCount()));
+		Label waterCount = new Label("Water intake (fluid ounces): " + String.valueOf(water.getMetricCount()));
 		TextField waterEntry = new TextField();
 		waterBox.getChildren().addAll(waterCount, waterEntry);
 		waterBox.setSpacing(10);
@@ -125,7 +127,7 @@ public class TrackerGUI extends Application {
 		summary.getChildren().add(waterBox);
 
 		HBox sleepBox = new HBox();
-		Label sleepCount = new Label("Sleep time: " + String.valueOf(sleep.getMetricCount()));
+		Label sleepCount = new Label("Sleep time (hours): " + String.valueOf(sleep.getMetricCount()));
 		TextField sleepEntry = new TextField();
 		sleepBox.getChildren().addAll(sleepCount, sleepEntry);
 		sleepBox.setSpacing(10);
@@ -146,12 +148,18 @@ public class TrackerGUI extends Application {
 		calorieBox.getChildren().addAll(calorieCount, calorieEntry);
 		calorieBox.setSpacing(10);
 		calorieBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		Button questionMark = new Button("?");
+		questionMark.setOnAction((event) -> {
+			Alert alert = new Alert(AlertType.INFORMATION, "Please enter the food you ate. For example, type one glass of milk, or two apples.");
+			alert.showAndWait();
+		});
+		calorieBox.getChildren().add(questionMark);
 		summary.getChildren().add(calorieBox);
 
 		root.getChildren().add(summary);
 		Button myButton = new Button("Add");
-		Tooltip t = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
-		Tooltip.install(myButton, t);
+		Tooltip t2 = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
+		Tooltip.install(myButton, t2);
 		myButton.setOnAction((event) -> {
 			if (!(stepEntry.getText().isEmpty())) {
 				steps.recordMetric(Integer.parseInt(stepEntry.getText()));
@@ -172,6 +180,12 @@ public class TrackerGUI extends Application {
 				exercise.recordMetric(Integer.parseInt(exerciseEntry.getText()));
 				exerciseCount.setText("Exercise Minutes: " + String.valueOf(exercise.getMetricCount()));
 				exerciseEntry.clear();
+			}
+			if (!(calorieEntry.getText().isEmpty())) {
+				FoodAPI f = new FoodAPI();
+				calories.addToCalorieCount(f.requestCalories(calorieEntry.getText()));
+				calorieCount.setText("Calories: " + String.valueOf(calories.getCalorieCount()));
+				calorieEntry.clear();
 			}
 		});
 
