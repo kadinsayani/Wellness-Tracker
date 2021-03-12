@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,20 +17,18 @@ import javafx.scene.layout.VBox;
  */
 public class TrackerGUI extends Application {
 	
-	private Label stepCount;
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public void start(Stage primaryStage) {
 
 		// Create VBox and Scene
 		VBox root = new VBox();
 		Scene scene = new Scene(root, 400, 500);
-		
+
 		userRegistration(root);
-		
+
 		// Application styling
 		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
@@ -36,10 +36,9 @@ public class TrackerGUI extends Application {
 		primaryStage.setTitle("Wellness Tracker");
 		primaryStage.show();
 	}
-	
-	public void userRegistration(VBox root)	{
-		Label myLabel = new Label(
-				"Please enter your information below: ");
+
+	public void userRegistration(VBox root) {
+		Label myLabel = new Label("Please enter your information below: ");
 		myLabel.setWrapText(true);
 		myLabel.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		root.getChildren().add(myLabel);
@@ -95,29 +94,29 @@ public class TrackerGUI extends Application {
 			System.out.println("User object created: " + user.toString());
 			root.getChildren().remove(myButton);
 			root.getChildren().removeAll(myLabel, hb1, hb2, hb3, hb4, hb5, myButton);
-			
+
 			summarizeWellnessMetrics(root, user);
 		});
 		root.getChildren().add(myButton);
 	}
-	
+
 	public void summarizeWellnessMetrics(VBox root, User user) {
 		Metric steps = new Metric("steps");
 		Metric water = new Metric("water");
 		Metric sleep = new Metric("sleep");
 		Metric exercise = new Metric("exercise");
 		Metric calories = new Metric("calories");
-		
+
 		VBox summary = new VBox();
-		
+
 		HBox stepBox = new HBox();
-		stepCount = new Label("Step count: " + String.valueOf(steps.getMetricCount()));
+		Label stepCount = new Label("Step count: " + String.valueOf(steps.getMetricCount()));
 		TextField stepEntry = new TextField();
 		stepBox.getChildren().addAll(stepCount, stepEntry);
 		stepBox.setSpacing(10);
 		stepBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		summary.getChildren().add(stepBox);
-		
+
 		HBox waterBox = new HBox();
 		Label waterCount = new Label("Water intake: " + String.valueOf(water.getMetricCount()));
 		TextField waterEntry = new TextField();
@@ -125,7 +124,7 @@ public class TrackerGUI extends Application {
 		waterBox.setSpacing(10);
 		waterBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		summary.getChildren().add(waterBox);
-		
+
 		HBox sleepBox = new HBox();
 		Label sleepCount = new Label("Sleep time: " + String.valueOf(sleep.getMetricCount()));
 		TextField sleepEntry = new TextField();
@@ -133,7 +132,7 @@ public class TrackerGUI extends Application {
 		sleepBox.setSpacing(10);
 		sleepBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		summary.getChildren().add(sleepBox);
-		
+
 		HBox exerciseBox = new HBox();
 		Label exerciseCount = new Label("Exercise minutes: " + String.valueOf(exercise.getMetricCount()));
 		TextField exerciseEntry = new TextField();
@@ -141,7 +140,7 @@ public class TrackerGUI extends Application {
 		exerciseBox.setSpacing(10);
 		exerciseBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		summary.getChildren().add(exerciseBox);
-		
+
 		HBox calorieBox = new HBox();
 		Label calorieCount = new Label("Calorie count: " + String.valueOf(calories.getMetricCount()));
 		TextField calorieEntry = new TextField();
@@ -149,7 +148,7 @@ public class TrackerGUI extends Application {
 		calorieBox.setSpacing(10);
 		calorieBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		summary.getChildren().add(calorieBox);
-		
+
 		root.getChildren().add(summary);
 		Button myButton = new Button("Add");
 		Tooltip t = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
@@ -157,13 +156,28 @@ public class TrackerGUI extends Application {
 		myButton.setOnAction((event) -> {
 			if(!(stepEntry.getText().isEmpty())) {
 				steps.recordMetric(Integer.parseInt(stepEntry.getText()));
-				stepCount = new Label("Step count: " + String.valueOf(steps.getMetricCount()));
+				stepCount.setText("Step count: " + String.valueOf(steps.getMetricCount()));
+				stepEntry.clear();
+			}
+			if(!(waterEntry.getText().isEmpty())) {
+				water.recordMetric(Integer.parseInt(waterEntry.getText()));
+				waterCount.setText("Step count: " + String.valueOf(water.getMetricCount()));
+				waterEntry.clear();
+			}
+			if(!(sleepEntry.getText().isEmpty())) {
+				sleep.recordMetric(Integer.parseInt(sleepEntry.getText()));
+				sleepCount.setText("Step count: " + String.valueOf(sleep.getMetricCount()));
+				sleepEntry.clear();
+			}
+			if(!(exerciseEntry.getText().isEmpty())) {
+				exercise.recordMetric(Integer.parseInt(exerciseEntry.getText()));
+				exerciseCount.setText("Step count: " + String.valueOf(exercise.getMetricCount()));
+				exerciseEntry.clear();
 			}
 		});
-		
+
 		root.getChildren().add(myButton);
-		
-				
+
 	}
 
 }
