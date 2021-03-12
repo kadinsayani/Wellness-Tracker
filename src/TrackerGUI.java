@@ -1,6 +1,5 @@
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,7 +15,7 @@ import javafx.scene.layout.VBox;
  *
  */
 public class TrackerGUI extends Application {
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -95,12 +94,12 @@ public class TrackerGUI extends Application {
 			root.getChildren().remove(myButton);
 			root.getChildren().removeAll(myLabel, hb1, hb2, hb3, hb4, hb5, myButton);
 
-			summarizeWellnessMetrics(root, user);
+			recordMetrics(root, user);
 		});
 		root.getChildren().add(myButton);
 	}
 
-	public void summarizeWellnessMetrics(VBox root, User user) {
+	public void recordMetrics(VBox root, User user) {
 		Metric steps = new Metric("steps");
 		Metric water = new Metric("water");
 		Metric sleep = new Metric("sleep");
@@ -154,24 +153,24 @@ public class TrackerGUI extends Application {
 		Tooltip t = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
 		Tooltip.install(myButton, t);
 		myButton.setOnAction((event) -> {
-			if(!(stepEntry.getText().isEmpty())) {
+			if (!(stepEntry.getText().isEmpty())) {
 				steps.recordMetric(Integer.parseInt(stepEntry.getText()));
 				stepCount.setText("Step count: " + String.valueOf(steps.getMetricCount()));
 				stepEntry.clear();
 			}
-			if(!(waterEntry.getText().isEmpty())) {
+			if (!(waterEntry.getText().isEmpty())) {
 				water.recordMetric(Integer.parseInt(waterEntry.getText()));
-				waterCount.setText("Step count: " + String.valueOf(water.getMetricCount()));
+				waterCount.setText("Water Intake: " + String.valueOf(water.getMetricCount()));
 				waterEntry.clear();
 			}
-			if(!(sleepEntry.getText().isEmpty())) {
+			if (!(sleepEntry.getText().isEmpty())) {
 				sleep.recordMetric(Integer.parseInt(sleepEntry.getText()));
-				sleepCount.setText("Step count: " + String.valueOf(sleep.getMetricCount()));
+				sleepCount.setText("Sleep Time: " + String.valueOf(sleep.getMetricCount()));
 				sleepEntry.clear();
 			}
-			if(!(exerciseEntry.getText().isEmpty())) {
+			if (!(exerciseEntry.getText().isEmpty())) {
 				exercise.recordMetric(Integer.parseInt(exerciseEntry.getText()));
-				exerciseCount.setText("Step count: " + String.valueOf(exercise.getMetricCount()));
+				exerciseCount.setText("Exercise Minutes: " + String.valueOf(exercise.getMetricCount()));
 				exerciseEntry.clear();
 			}
 		});
