@@ -20,7 +20,7 @@ public class User {
 	 * @param weight
 	 * @param calorieGoal
 	 */
-	User(String name, int stepGoal, int age, int weight, int calorieGoal) {
+	User(String name, int age, int weight, int stepGoal, int calorieGoal) {
 		this.name = name;
 		this.stepGoal = stepGoal;
 		this.age = age;

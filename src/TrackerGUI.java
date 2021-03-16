@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
@@ -22,6 +23,9 @@ public class TrackerGUI extends Application {
 		launch(args);
 	}
 
+	/**
+	 * start method
+	 */
 	public void start(Stage primaryStage) {
 
 		// Create VBox and Scene
@@ -38,6 +42,10 @@ public class TrackerGUI extends Application {
 		primaryStage.show();
 	}
 
+	/**
+	 * userRegistration method for getting info on user and creating user object
+	 * @param root
+	 */
 	public void userRegistration(VBox root) {
 		Label myLabel = new Label("Please enter your information below: ");
 		myLabel.setWrapText(true);
@@ -96,12 +104,14 @@ public class TrackerGUI extends Application {
 			root.getChildren().remove(myButton);
 			root.getChildren().removeAll(myLabel, hb1, hb2, hb3, hb4, hb5, myButton);
 
+			// now that user object is created we can remove the user reg text fields and call recordMetrics
 			recordMetrics(root, user);
 		});
 		root.getChildren().add(myButton);
 	}
 
 	public void recordMetrics(VBox root, User user) {
+		// create metric objects for 5 metrics
 		Metric steps = new Metric("steps");
 		Metric water = new Metric("water");
 		Metric sleep = new Metric("sleep");
@@ -116,7 +126,6 @@ public class TrackerGUI extends Application {
 		stepBox.getChildren().addAll(stepCount, stepEntry);
 		stepBox.setSpacing(10);
 		stepBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
-		summary.getChildren().add(stepBox);
 
 		HBox waterBox = new HBox();
 		Label waterCount = new Label("Water intake (fluid ounces): " + String.valueOf(water.getMetricCount()));
@@ -124,7 +133,6 @@ public class TrackerGUI extends Application {
 		waterBox.getChildren().addAll(waterCount, waterEntry);
 		waterBox.setSpacing(10);
 		waterBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
-		summary.getChildren().add(waterBox);
 
 		HBox sleepBox = new HBox();
 		Label sleepCount = new Label("Sleep time (hours): " + String.valueOf(sleep.getMetricCount()));
@@ -132,7 +140,6 @@ public class TrackerGUI extends Application {
 		sleepBox.getChildren().addAll(sleepCount, sleepEntry);
 		sleepBox.setSpacing(10);
 		sleepBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
-		summary.getChildren().add(sleepBox);
 
 		HBox exerciseBox = new HBox();
 		Label exerciseCount = new Label("Exercise minutes: " + String.valueOf(exercise.getMetricCount()));
@@ -140,7 +147,6 @@ public class TrackerGUI extends Application {
 		exerciseBox.getChildren().addAll(exerciseCount, exerciseEntry);
 		exerciseBox.setSpacing(10);
 		exerciseBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
-		summary.getChildren().add(exerciseBox);
 
 		HBox calorieBox = new HBox();
 		Label calorieCount = new Label("Calorie count: " + String.valueOf(calories.getMetricCount()));
@@ -150,17 +156,22 @@ public class TrackerGUI extends Application {
 		calorieBox.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		Button questionMark = new Button("?");
 		questionMark.setOnAction((event) -> {
-			Alert alert = new Alert(AlertType.INFORMATION, "Please enter the food you ate. For example, type one glass of milk, or two apples.");
+			Alert alert = new Alert(AlertType.INFORMATION,
+					"Please enter the food you ate. For example, type one glass of milk, or two apples.");
 			alert.showAndWait();
 		});
 		calorieBox.getChildren().add(questionMark);
-		summary.getChildren().add(calorieBox);
+		
+		summary.getChildren().addAll(stepBox, waterBox, sleepBox, exerciseBox, calorieBox);
 
 		root.getChildren().add(summary);
+		
+		
 		Button myButton = new Button("Add");
 		Tooltip t2 = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
 		Tooltip.install(myButton, t2);
 		myButton.setOnAction((event) -> {
+			// button handler checks if user has inputted to text fields and if so adds user metric recordings to metricCount in metric object
 			if (!(stepEntry.getText().isEmpty())) {
 				steps.recordMetric(Integer.parseInt(stepEntry.getText()));
 				stepCount.setText("Step count: " + String.valueOf(steps.getMetricCount()));
@@ -187,10 +198,38 @@ public class TrackerGUI extends Application {
 				calorieCount.setText("Calories: " + String.valueOf(calories.getCalorieCount()));
 				calorieEntry.clear();
 			}
+			
+			summarizeMetrics(root, steps, water, sleep, exercise, calories, user);
+			
 		});
 
 		root.getChildren().add(myButton);
 
+	}
+
+	/**
+	 * summarizeMetrics provides charts for summarizing metrics and how far a user is from their goals
+	 * 
+	 * @param root
+	 * @param steps
+	 * @param water
+	 * @param sleep
+	 * @param exercise
+	 * @param calories
+	 * @param user
+	 */
+	public void summarizeMetrics(VBox root, Metric steps, Metric water, Metric sleep, Metric exercise, Metric calories, User user) {
+		
+		HBox summarizeSteps = new HBox();
+		Label s1 = new Label("% of step goal reached");
+		ProgressBar stepProgress = new ProgressBar(0);
+		stepProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		stepProgress.setProgress(steps.getMetricCount() / user.getStepGoal());
+		Label s2 = new Label(((steps.getMetricCount() / user.getStepGoal()) * 100) + "%");
+		summarizeSteps.getChildren().addAll(s1, stepProgress, s2);
+		
+		root.getChildren().addAll(summarizeSteps);
+		
 	}
 
 }

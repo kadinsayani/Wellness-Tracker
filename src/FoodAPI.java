@@ -3,7 +3,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
 
 /**
  * FoodAPI class for API request and food tracking related features
@@ -23,7 +22,7 @@ public class FoodAPI {
 	 * @return calories
 	 */
 	public double requestCalories(String input) {
-		
+
 		String foodSearch = input.replace(" ", "%20");
 
 		try {

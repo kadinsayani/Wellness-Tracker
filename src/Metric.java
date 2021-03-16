@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * @author kadinsayani
  *
@@ -20,71 +18,11 @@ public class Metric {
 			calorieCount = 0.0;
 		}
 		metricCount = 0.0;
-		this.metricType = metricType;
-	}
-	
-	public void recordMetric(double amountToAdd)	{
-		metricCount += amountToAdd;
+		this.setMetricType(metricType);
 	}
 
-	/**
-	 * checkMetric method compares recorded metrics with goals and calculated
-	 * recommendations
-	 * 
-	 * @param: user - user metrics and goals being checked
-	 * 
-	 * @returns: void
-	 */
-	public void checkMetric(User user) {
-		if (metricType == "steps") {
-			if (metricCount < user.getStepGoal()) {
-				System.out.println("You have " + (user.getStepGoal() - metricCount)
-						+ " steps remaining before you reach your goal! 👣");
-			} else if (metricCount == user.getStepGoal()) {
-				System.out.println("Congratulations! You have reached your step goal. ✅");
-			} else {
-				System.out.println("You have exceeded your step goal, keep it up! 😁");
-			}
-		} else if (metricType == "water") {
-			double waterGoal = calculateRequiredWaterIntake(user);
-			if (metricCount < waterGoal) {
-				System.out.println("You have " + (waterGoal - metricCount)
-						+ " fluid ounces remaining before you reach your recommended daily water intake! 💧");
-			} else if (metricCount == waterGoal) {
-				System.out.println("Congratulations! You have reached your recommended daily water intake. ✅");
-			} else {
-				System.out.println("You have exceeded your recommended daily water intake, keep it up! 😁");
-			}
-		} else if (metricType == "sleep") {
-			double sleepGoal = calculateRecommendedSleep(user.getAge());
-			if (metricCount < sleepGoal) {
-				System.out.println("You are " + (sleepGoal - metricCount)
-						+ " hours short of your recommended sleep time (" + sleepGoal + "). 💤");
-			} else if (metricCount == sleepGoal) {
-				System.out.println("Congratulations! You have met your recommended sleep time. ✅");
-			} else {
-				System.out.println("You have exceeded your recommended sleep time. 😁");
-			}
-		} else if (metricType == "exercise") {
-			double exerciseGoal = 60.0;
-			if (metricCount < exerciseGoal) {
-				System.out.println("You have " + (exerciseGoal - metricCount)
-						+ " exercise minutes remaining before you reach your recommended daily exercise time. 💪");
-			} else if (metricCount == exerciseGoal) {
-				System.out.println("Congratulations! You have met your recommended daily exercise time! ✅");
-			} else {
-				System.out.println("You have exceeded your recommended daily exercise time. 😁");
-			}
-		} else if (metricType == "calories") {
-			if (calorieCount < user.getCalorieGoal()) {
-				System.out.println("You have " + (user.getCalorieGoal() - calorieCount)
-						+ " calories remaining before you reach your calorie goal. 🍎");
-			} else if (calorieCount == user.getCalorieGoal()) {
-				System.out.println("Congratulations! You have met your calorie goal! ✅");
-			} else {
-				System.out.println("You have exceeded your calorie goal.");
-			}
-		}
+	public void recordMetric(double amountToAdd) {
+		metricCount += amountToAdd;
 	}
 
 	/**
@@ -136,6 +74,20 @@ public class Metric {
 	 */
 	public double getCalorieCount() {
 		return calorieCount;
+	}
+
+	/**
+	 * @return metricType
+	 */
+	public String getMetricType() {
+		return metricType;
+	}
+
+	/**
+	 * @param metricType
+	 */
+	public void setMetricType(String metricType) {
+		this.metricType = metricType;
 	}
 
 }
