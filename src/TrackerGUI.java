@@ -18,6 +18,12 @@ import javafx.scene.layout.VBox;
  *
  */
 public class TrackerGUI extends Application {
+	
+	HBox summarizeSteps;
+	HBox summarizeWater;
+	HBox summarizeSleep;
+	HBox summarizeExercise;
+	HBox summarizeCalories;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -220,7 +226,9 @@ public class TrackerGUI extends Application {
 	 */
 	public void summarizeMetrics(VBox root, Metric steps, Metric water, Metric sleep, Metric exercise, Metric calories, User user) {
 		
-		HBox summarizeSteps = new HBox();
+		root.getChildren().removeAll(summarizeSteps, summarizeWater, summarizeSleep, summarizeExercise, summarizeCalories);
+		
+		summarizeSteps = new HBox();
 		Label s1 = new Label("% of step goal reached");
 		ProgressBar stepProgress = new ProgressBar(0);
 		stepProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
@@ -228,7 +236,39 @@ public class TrackerGUI extends Application {
 		Label s2 = new Label(((steps.getMetricCount() / user.getStepGoal()) * 100) + "%");
 		summarizeSteps.getChildren().addAll(s1, stepProgress, s2);
 		
-		root.getChildren().addAll(summarizeSteps);
+		summarizeWater = new HBox();
+		Label w1 = new Label("% of water intake goal reached");
+		ProgressBar waterProgress = new ProgressBar(0);
+		waterProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		waterProgress.setProgress(water.getMetricCount() / water.calculateRequiredWaterIntake(user));
+		Label w2 = new Label(((water.getMetricCount() / water.calculateRequiredWaterIntake(user)) * 100) + "%");
+		summarizeWater.getChildren().addAll(w1, waterProgress, w2);
+		
+		summarizeSleep = new HBox();
+		Label sl1 = new Label("% of sleep goal reached");
+		ProgressBar sleepProgress = new ProgressBar(0);
+		sleepProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		sleepProgress.setProgress(sleep.getMetricCount() / sleep.calculateRecommendedSleep(user.getAge()));
+		Label sl2 = new Label(((sleep.getMetricCount() / sleep.calculateRecommendedSleep(user.getAge())) * 100) + "%");
+		summarizeSleep.getChildren().addAll(sl1, sleepProgress, sl2);
+		
+		summarizeExercise = new HBox();
+		Label e1 = new Label("% of exercise minutes goal reached");
+		ProgressBar exerciseProgress = new ProgressBar(0);
+		exerciseProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		exerciseProgress.setProgress(exercise.getMetricCount() / 60.0);
+		Label e2 = new Label(((exercise.getMetricCount() / 60.0) * 100) + "%");
+		summarizeExercise.getChildren().addAll(e1, exerciseProgress, e2);
+		
+		summarizeCalories = new HBox();
+		Label c1 = new Label("% of calorie goal reached");
+		ProgressBar calorieProgress = new ProgressBar(0);
+		calorieProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+		calorieProgress.setProgress(calories.getCalorieCount() / user.getCalorieGoal());
+		Label c2 = new Label(((calories.getCalorieCount() / user.getCalorieGoal()) * 100) + "%");
+		summarizeCalories.getChildren().addAll(c1, calorieProgress, c2);
+		
+		root.getChildren().addAll(summarizeSteps, summarizeWater, summarizeSleep, summarizeExercise, summarizeCalories);
 		
 	}
 
