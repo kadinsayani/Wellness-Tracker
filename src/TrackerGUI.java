@@ -233,7 +233,7 @@ public class TrackerGUI extends Application {
 		ProgressBar stepProgress = new ProgressBar(0);
 		stepProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		stepProgress.setProgress(steps.getMetricCount() / user.getStepGoal());
-		Label s2 = new Label(((steps.getMetricCount() / user.getStepGoal()) * 100) + "%");
+		Label s2 = new Label(Math.round((steps.getMetricCount() / user.getStepGoal()) * 100) + "%");
 		summarizeSteps.getChildren().addAll(s1, stepProgress, s2);
 		
 		summarizeWater = new HBox();
@@ -241,7 +241,7 @@ public class TrackerGUI extends Application {
 		ProgressBar waterProgress = new ProgressBar(0);
 		waterProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		waterProgress.setProgress(water.getMetricCount() / water.calculateRequiredWaterIntake(user));
-		Label w2 = new Label(((water.getMetricCount() / water.calculateRequiredWaterIntake(user)) * 100) + "%");
+		Label w2 = new Label(Math.round((water.getMetricCount() / water.calculateRequiredWaterIntake(user)) * 100) + "%");
 		summarizeWater.getChildren().addAll(w1, waterProgress, w2);
 		
 		summarizeSleep = new HBox();
@@ -249,7 +249,7 @@ public class TrackerGUI extends Application {
 		ProgressBar sleepProgress = new ProgressBar(0);
 		sleepProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		sleepProgress.setProgress(sleep.getMetricCount() / sleep.calculateRecommendedSleep(user.getAge()));
-		Label sl2 = new Label(((sleep.getMetricCount() / sleep.calculateRecommendedSleep(user.getAge())) * 100) + "%");
+		Label sl2 = new Label(Math.round((sleep.getMetricCount() / sleep.calculateRecommendedSleep(user.getAge())) * 100) + "%");
 		summarizeSleep.getChildren().addAll(sl1, sleepProgress, sl2);
 		
 		summarizeExercise = new HBox();
@@ -257,7 +257,7 @@ public class TrackerGUI extends Application {
 		ProgressBar exerciseProgress = new ProgressBar(0);
 		exerciseProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		exerciseProgress.setProgress(exercise.getMetricCount() / 60.0);
-		Label e2 = new Label(((exercise.getMetricCount() / 60.0) * 100) + "%");
+		Label e2 = new Label(Math.round((exercise.getMetricCount() / 60.0) * 100) + "%");
 		summarizeExercise.getChildren().addAll(e1, exerciseProgress, e2);
 		
 		summarizeCalories = new HBox();
@@ -265,7 +265,7 @@ public class TrackerGUI extends Application {
 		ProgressBar calorieProgress = new ProgressBar(0);
 		calorieProgress.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
 		calorieProgress.setProgress(calories.getCalorieCount() / user.getCalorieGoal());
-		Label c2 = new Label(((calories.getCalorieCount() / user.getCalorieGoal()) * 100) + "%");
+		Label c2 = new Label(Math.round((calories.getCalorieCount() / user.getCalorieGoal()) * 100) + "%");
 		summarizeCalories.getChildren().addAll(c1, calorieProgress, c2);
 		
 		root.getChildren().addAll(summarizeSteps, summarizeWater, summarizeSleep, summarizeExercise, summarizeCalories);
