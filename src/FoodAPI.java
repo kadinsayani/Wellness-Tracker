@@ -18,7 +18,8 @@ public class FoodAPI {
 	 * recordFoodItem method uses the CalorieNinjas natural language processing api
 	 * (https://rapidapi.com/user/calorieninjas) to retrieve calories for a user
 	 * inputed query
-	 *
+	 * 
+	 * @param input
 	 * @return calories
 	 */
 	public double requestCalories(String input) {
