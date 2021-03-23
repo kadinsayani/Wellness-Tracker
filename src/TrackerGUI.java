@@ -37,11 +37,12 @@ public class TrackerGUI extends Application {
 		// Create VBox and Scene
 		VBox root = new VBox();
 		Scene scene = new Scene(root, 400, 500);
+		
+		// Application styling
+		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
 		userRegistration(root);
 
-		// Application styling
-		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Wellness Tracker");
