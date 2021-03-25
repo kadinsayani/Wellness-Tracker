@@ -1,5 +1,10 @@
 import javafx.application.Application;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;    
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -174,10 +179,10 @@ public class TrackerGUI extends Application {
 		root.getChildren().add(summary);
 		
 		
-		Button myButton = new Button("Add");
-		Tooltip t2 = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
-		Tooltip.install(myButton, t2);
-		myButton.setOnAction((event) -> {
+		Button addButton = new Button("Add");
+		Tooltip tAddButton = new Tooltip("Click to submit entries. You can submit as many as you want at a time.");
+		Tooltip.install(addButton, tAddButton);
+		addButton.setOnAction((event) -> {
 			// button handler checks if user has inputted to text fields and if so adds user metric recordings to metricCount in metric object
 			if (!(stepEntry.getText().isEmpty())) {
 				steps.recordMetric(Integer.parseInt(stepEntry.getText()));
@@ -209,8 +214,36 @@ public class TrackerGUI extends Application {
 			summarizeMetrics(root, steps, water, sleep, exercise, calories, user);
 			
 		});
+		
+		Button reportButton = new Button("Generate Report");
+		Tooltip tReportButton = new Tooltip("Click to generate a report on today's wellness metrics.");
+		Tooltip.install(reportButton, tReportButton);
+		reportButton.setOnAction((event) -> {
+			LocalDateTime now = LocalDateTime.now();
+			System.out.println("Wellness report generated " + now);
+			
+			// Create directory in home folder if not exists
+		    File directory = new File(File.listRoots()[0], "Users" + System.getProperty("file.separator") + System.getProperty("user.name") + System.getProperty("file.separator") + "Wellness Tracker Reports");
+		    if (!directory.exists()) {
+		    	directory.mkdir();
+		    }
+		    
+		    // Create report txt file in Wellness Tracker Reports directory
+		    String fileName = "Wellness Report " + now + ".txt";
+		    File file = new File(directory + "/" + fileName);
+		    try{
+		        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+		        BufferedWriter bw = new BufferedWriter(fw);
+		        bw.write("Hello");
+		        bw.close();
+		    }
+		    catch (IOException e){
+		        e.printStackTrace();
+		    }
+		});
 
-		root.getChildren().add(myButton);
+		root.getChildren().add(addButton);
+		root.getChildren().add(reportButton);
 
 	}
 
