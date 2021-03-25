@@ -234,7 +234,13 @@ public class TrackerGUI extends Application {
 		    try{
 		        FileWriter fw = new FileWriter(file.getAbsoluteFile());
 		        BufferedWriter bw = new BufferedWriter(fw);
-		        bw.write("Hello");
+		        bw.write("Wellness Report generated " + now + "\n");
+		        bw.write("User: " + user.getName() + "\n");
+		        bw.write("Steps: " + steps.getMetricCount() + " steps\n");
+		        bw.write("Water: " + water.getMetricCount() + " fluid ounces\n");
+		        bw.write("Sleep: " + sleep.getMetricCount() + " hours\n");
+		        bw.write("Exercise: " + exercise.getMetricCount() + " minutes\n");
+		        bw.write("Calories: " + calories.getCalorieCount() + " calories\n");
 		        bw.close();
 		    }
 		    catch (IOException e){
