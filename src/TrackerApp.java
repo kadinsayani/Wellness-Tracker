@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
  * @author kadinsayani
  *
  */
-public class TrackerGUI extends Application {
+public class TrackerApp extends Application {
 
 	HBox summarizeSteps;
 	HBox summarizeWater;
