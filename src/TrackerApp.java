@@ -224,7 +224,7 @@ public class TrackerApp extends Application {
 		});
 
 		Button reportButton = new Button("Generate Report");
-		Tooltip tReportButton = new Tooltip("Click to generate a report on today's wellness metrics.");
+		Tooltip tReportButton = new Tooltip("Click to generate a report on today's wellness metrics. The report will be located in home/Wellness Tracker Reports/.");
 		Tooltip.install(reportButton, tReportButton);
 		reportButton.setOnAction((event) -> {
 			LocalDateTime now = LocalDateTime.now();
