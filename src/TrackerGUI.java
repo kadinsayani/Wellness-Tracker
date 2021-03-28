@@ -29,9 +29,16 @@ public class TrackerGUI extends Application {
 	HBox summarizeSleep;
 	HBox summarizeExercise;
 	HBox summarizeCalories;
+	
+	static boolean useGraphicalInterface = true;
 
 	public static void main(String[] args) {
-		launch(args);
+		if (useGraphicalInterface == true) {
+			launch(args);
+		} else {
+			TextInterface t = new TextInterface();
+			t.menu();
+		}
 	}
 
 	/**
