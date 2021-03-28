@@ -24,4 +24,4 @@ Food Tracking is accomplished by using CalorieNinja's natural language processin
 
 2. CSS Styling
 
-My project has css styling for text, backgrounds, tooltips, and buttons. Text fields utilize focused text input to add a blue border when a user is recording text in a particular field. Buttons utilize simple java fx css animations so they have a shadow effect when a user hovers their mouse over the button. All CSS in this project was accomplished by referring to the JavaFX documentation.
+My project has css styling for text, backgrounds, tooltips, and buttons. Text fields utilize focused text input to add a blue border when a user is recording text in a particular field. Buttons utilize simple java fx css animations so they have a shadow effect when a user hovers their mouse over the button. All css in this project was accomplished by referring to the JavaFX documentation.
