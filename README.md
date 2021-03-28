@@ -25,3 +25,7 @@ Food Tracking is accomplished by using CalorieNinja's natural language processin
 2. CSS Styling
 
 My project has css styling for text, backgrounds, tooltips, and buttons. Text fields utilize focused text input to add a blue border when a user is recording text in a particular field. Buttons utilize simple java fx css animations so they have a shadow effect when a user hovers their mouse over the button. All css in this project was accomplished by referring to the JavaFX documentation.
+
+3. Lamda Function Button Handlers
+
+I chose to use lambda funciton button event handlers for my project because I liked the idea of writing my button handler in line with the rest of my user interface code. I also believe lambda function event handlers are easier to work with. The JavaFX Button class includes a method called setOnAciton that can be used for button click events. I passed the result of this method into my lambda function as an argument.
