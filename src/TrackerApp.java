@@ -30,8 +30,10 @@ public class TrackerApp extends Application {
 	HBox summarizeExercise;
 	HBox summarizeCalories;
 	
+	// Change this to false to use the text based interface
 	static boolean useGraphicalInterface = true;
 
+	// main method
 	public static void main(String[] args) {
 		if (useGraphicalInterface == true) {
 			launch(args);
@@ -130,6 +132,12 @@ public class TrackerApp extends Application {
 		root.getChildren().add(myButton);
 	}
 
+	/**
+	 * recordMetrics generates text fields and button handlers for users to record metrics
+	 * 
+	 * @param root
+	 * @param user
+	 */
 	public void recordMetrics(VBox root, User user) {
 		// create metric objects for 5 metrics
 		Metric steps = new Metric("steps");
@@ -263,7 +271,7 @@ public class TrackerApp extends Application {
 	}
 
 	/**
-	 * summarizeMetrics provides charts for summarizing metrics and how far a user
+	 * summarizeMetrics provides progress bars for summarizing metrics and how far a user
 	 * is from their goals
 	 * 
 	 * @param root
