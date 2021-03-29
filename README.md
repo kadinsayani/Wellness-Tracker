@@ -30,7 +30,7 @@ My project has css styling for text, backgrounds, tooltips, and buttons. Text fi
 
 I chose to use lambda funciton button event handlers for my project because I liked the idea of writing my button handler in line with the rest of my user interface code. I also believe lambda function event handlers are easier to work with. The JavaFX Button class includes a method called setOnAciton that can be used for button click events. I passed the result of this method into my lambda function as an argument.
 
-4. Addition UI Elements
+4. Additional UI Elements
 
 My project also utilizes additional UI elements such as tooltips, progress bars, and alerts. Tooltips allow a user to hover over a button and learn more about what it does. For example, hovering over Add brings up a tooltip that states: "Click to submit entries. You can submit as many as you want at a time." Progress bars are used for tracking a users progress towards their wellness metric goals.
 
