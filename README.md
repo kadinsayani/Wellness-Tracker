@@ -47,9 +47,3 @@ I chose to use lambda function button event handlers for my project because I li
 
 
 My project also utilizes additional UI elements such as tooltips, progress bars, and alerts. Tooltips allow a user to hover over a button and learn more about what it does. For example, hovering over Add brings up a tooltip that states: "Click to submit entries. You can submit as many as you want at a time." Progress bars are used for tracking a user's progress towards their wellness metric goals.
-
-
-5. Wellness Reports (File IO)
-
-
-Users can generate wellness reports which summarize their wellness metrics for a given day. Reports are located in /home/Wellness Tracker Reports/.
