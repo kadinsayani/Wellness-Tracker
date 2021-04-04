@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 /**
- * TrackerInterface class. This class handles the interface of the
- * application and calls methods for recording metrics, checking metrics,
- * and calorie tracking
+ * TrackerInterface class. This class handles the interface of the application
+ * and calls methods for recording metrics, checking metrics, and calorie
+ * tracking
  */
 
 public class TextInterface {
@@ -27,7 +27,7 @@ public class TextInterface {
 		Scanner sc = new Scanner(System.in);
 
 		boolean menuActive = true;
-		
+
 		System.out.println(
 				"Welcome to Wellness Tracker! Wellness Tracker records steps, water intake, time spent sleeping, and also does food tracking!");
 		System.out.println("Please enter your name: ");
@@ -44,7 +44,7 @@ public class TextInterface {
 
 		// Create user object and pass in user inputed data
 		User user = new User(name, stepGoal, age, weight, calorieGoal);
-		
+
 		do {
 			// Main menu
 			System.out.println("\n");

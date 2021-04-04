@@ -29,7 +29,7 @@ public class TrackerApp extends Application {
 	HBox summarizeSleep;
 	HBox summarizeExercise;
 	HBox summarizeCalories;
-	
+
 	// Change this to false to use the text based interface
 	static boolean useGraphicalInterface = true;
 
@@ -133,7 +133,8 @@ public class TrackerApp extends Application {
 	}
 
 	/**
-	 * recordMetrics generates text fields and button handlers for users to record metrics
+	 * recordMetrics generates text fields and button handlers for users to record
+	 * metrics
 	 * 
 	 * @param root
 	 * @param user
@@ -232,7 +233,8 @@ public class TrackerApp extends Application {
 		});
 
 		Button reportButton = new Button("Generate Report");
-		Tooltip tReportButton = new Tooltip("Click to generate a report on today's wellness metrics. The report will be located in home/Wellness Tracker Reports/.");
+		Tooltip tReportButton = new Tooltip(
+				"Click to generate a report on today's wellness metrics. The report will be located in home/Wellness Tracker Reports/.");
 		Tooltip.install(reportButton, tReportButton);
 		reportButton.setOnAction((event) -> {
 			LocalDateTime now = LocalDateTime.now();
@@ -271,8 +273,8 @@ public class TrackerApp extends Application {
 	}
 
 	/**
-	 * summarizeMetrics provides progress bars for summarizing metrics and how far a user
-	 * is from their goals
+	 * summarizeMetrics provides progress bars for summarizing metrics and how far a
+	 * user is from their goals
 	 * 
 	 * @param root
 	 * @param steps
