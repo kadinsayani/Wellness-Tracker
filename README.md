@@ -4,8 +4,6 @@
 ## About
 
 
-*Project for CPSC 219*
-
 
 WellnessTracker is a Java application that tracks wellness metrics such as steps, water intake, exercise, and also does food tracking. 
 
