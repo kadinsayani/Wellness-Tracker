@@ -5,15 +5,10 @@
 
 
 
-WellnessTracker is a Java application that tracks wellness metrics such as steps, water intake, exercise, and also does food tracking. 
+WellnessTracker is a Java desktop application that tracks wellness metrics such as steps, water intake, exercise, and also does food tracking. 
 
 
 ## Project Reflection
-
-
-### Development Environment
-
-For my project, I chose to use the Eclipse IDE. For my first demo, I used VIM and javac, however, I decided to switch to Eclipse for my second demo because I wanted an environment with a debugger, JUnit support, a project explorer, and a marketplace. 
 
 
 ### Switching Between the Text-Based User Interface and Graphical User Interface
